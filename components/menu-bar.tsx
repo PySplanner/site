@@ -9,6 +9,7 @@ interface MenuBarProps {
 }
 
 export function MenuBar({ currentTab, onTabChange }: MenuBarProps) {
+
   return (
     <div className="w-full h-16 border-b flex items-center justify-between px-6 bg-background shrink-0">
         {/* Logo and Title */}
