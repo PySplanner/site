@@ -1,3 +1,4 @@
+"use client";
 import TypeIt from "typeit-react";
 
 export default function Home() {
