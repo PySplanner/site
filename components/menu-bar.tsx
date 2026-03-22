@@ -2,6 +2,8 @@
 
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Discord, Github } from "@/components/media-buttons";
+import ThemeSwitch from "@/components/theme-switch";
+import { Separator } from "@/components/ui/separator";
 
 interface MenuBarProps {
   currentTab: string;
@@ -9,7 +11,6 @@ interface MenuBarProps {
 }
 
 export function MenuBar({ currentTab, onTabChange }: MenuBarProps) {
-
   return (
     <div className="w-full h-16 border-b flex items-center justify-between px-6 bg-background shrink-0">
         {/* Logo and Title */}
@@ -27,9 +28,13 @@ export function MenuBar({ currentTab, onTabChange }: MenuBarProps) {
         </TabsList>
         </Tabs>
 
-      <div className="flex flex-1 items-center justify-end space-x-4">
-        <Discord />
-        <Github />
+      <div className="flex flex-1 items-center justify-end">
+        <ThemeSwitch />
+        <Separator orientation="vertical" className="h-8" />
+        <div className="flex ml-4 gap-4">
+          <Discord />
+          <Github />
+        </div>
       </div>
     </div>
   );

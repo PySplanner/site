@@ -21,7 +21,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen min-w-screen bg-background">
       <MenuBar currentTab={currentTab} onTabChange={setCurrentTab} />
       <div className="flex-1 flex flex-col w-full">
-        <Content />
+        <Content setCurrentTab={setCurrentTab} />
       </div>
       <Footer className="w-full mt-auto shrink-0" />
     </div>
