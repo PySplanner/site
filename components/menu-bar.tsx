@@ -12,7 +12,7 @@ interface MenuBarProps {
 
 export function MenuBar({ currentTab, onTabChange }: MenuBarProps) {
   return (
-    <div className="w-full h-16 border-b flex items-center justify-between px-6 bg-background shrink-0">
+    <div className="w-full h-16 border-b flex items-center justify-between px-6 bg-nav-bar shrink-0">
         <div className="flex flex-1 items-center gap-3 font-bold text-lg">
             <img src="./logo.png" alt="PySplanner Logo" width={40} height={40} className="rounded-md" />
             <span className="text-primary">PySplanner</span>
@@ -28,7 +28,7 @@ export function MenuBar({ currentTab, onTabChange }: MenuBarProps) {
         </Tabs>
 
       <div className="flex flex-1 items-center justify-end">
-        <ThemeSwitch />
+        {/* <ThemeSwitch /> (Will add back later, too hard to maintain right now) */}
         <Separator orientation="vertical" className="h-8" />
         <div className="flex ml-4 gap-4">
           <Discord />
