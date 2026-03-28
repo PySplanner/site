@@ -7,7 +7,7 @@ export default function Home({ setCurrentTab }: { setCurrentTab?: (tab: string) 
         <div className="relative flex flex-col w-full items-center">
             <div className="absolute top-0 left-0 right-0 h-[60vh] bg-linear-to-b from-primary/11 dark:from-primary/6 to-transparent pointer-events-none" />
 
-            <img className="rounded-md mt-8 mb-6" width={570} height={240} src="./banner.png" alt="PySplanner Logo" />
+            <img className="rounded-md mt-8 mb-6" width={570} height={240} src="./banner.svg" alt="PySplanner Logo" />
             <div className="w-3/8 text-center">
                 <TypedHeading />
                 <p className="text-lg text-muted-foreground mt-4">

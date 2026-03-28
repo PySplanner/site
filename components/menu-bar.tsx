@@ -14,7 +14,7 @@ export function MenuBar({ currentTab, onTabChange }: MenuBarProps) {
   return (
     <div className="w-full h-16 border-b flex items-center justify-between px-6 bg-nav-bar shrink-0">
         <div className="flex flex-1 items-center gap-3 font-bold text-lg">
-            <img src="./logo.png" alt="PySplanner Logo" width={40} height={40} className="rounded-md" />
+            <img src="./logo.svg" alt="PySplanner Logo" width={40} height={40} className="rounded-md" />
             <span className="text-primary">PySplanner</span>
         </div>
 
