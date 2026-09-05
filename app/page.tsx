@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 import TypeIt from "typeit-react";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowDownIcon, MailIcon, ExternalLinkIcon } from "lucide-react";
 
 interface TutorialProps {
   name: string;
@@ -108,7 +108,7 @@ const socialLinks: SocialProps[] = [
   },
   {
     name: "Email",
-    icon: <Mail className="size-8" />,
+    icon: <MailIcon className="size-8" />,
     link: "mailto:contact@pysplanner.com"
   }
 ];
@@ -145,12 +145,14 @@ export default function Home() {
 
               <div className="flex items-center gap-4 mt-8">
                 <Button className="text-white" size="lg" onClick={() => router.push('/docs')}>Get Started</Button>
-                <Button variant="outline" size="lg" onClick={() => window.open("https://planner.pysplanner.com/", '_blank')}>Go To Planner</Button>
+                <Button variant="outline" size="lg" onClick={() => window.open("https://planner.pysplanner.com/", '_blank')}>
+                  Go To Planner <ExternalLinkIcon className="ml-1 h-4 w-4" />
+                </Button>
             </div>
 
             {isMounted && (
               <div className={`absolute bottom-8 flex flex-col items-center gap-1 text-muted-foreground text-sm transition-opacity duration-300 ${isScrollIndicatorVisible ? 'opacity-100' : 'opacity-0'}`}>
-                <ArrowDown />View More
+                <ArrowDownIcon />View More
               </div>
             )}
         </div>
