@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { GithubSVG, DiscordSVG, YoutubeSVG } from "@/components/media-icons";
+import { GithubSVG, DiscordSVG, YoutubeSVG, InstagramSVG } from "@/components/media-icons";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -105,6 +105,11 @@ const socialLinks: SocialProps[] = [
     name: "YouTube",
     icon: <YoutubeSVG className="size-8"/>,
     link: "https://www.youtube.com/@pysplanner"
+  },
+  {
+    name: "Instagram",
+    icon: <InstagramSVG className="size-8"/>,
+    link: "https://www.instagram.com/pysplanner/"
   },
   {
     name: "Email",
