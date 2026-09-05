@@ -144,7 +144,7 @@ export default function Home() {
                 <TypedHeading />
                 <p className="mx-auto w-3/8 text-lg text-muted-foreground mt-4">
                   PySplanner is a powerful, free, and open source tool for optimized autonomous movement on LEGO MINDSTORMS EV3 and SPIKE Prime robots.
-                  Creating smooth and consistent movements for your robot has never been easier. Say goodbye to guesswork and hello to precision with PySplanner.
+                  Creating smooth and consistent movements for your robot has never been easier. Check out the documentation below to get tarted!
                 </p>
             </div>
 

@@ -1,9 +1,16 @@
-import { Toaster } from "@/components/ui/sonner"
 import { Instrument_Sans } from 'next/font/google';
 import { ThemeProvider } from "next-themes"
+import type { Metadata } from 'next'
+
+import { Toaster } from "@/components/ui/sonner"
+import { Footer } from '@/components/footer';
+
 import "./globals.css"
 
-import { Footer } from '@/components/footer';
+export const metadata: Metadata = {
+  title: 'PySplanner',
+  description: 'PySplanner brings optimized autonomous movement to LEGO MINDSTORMS EV3 and SPIKE Prime robots',
+}
 
 const instrumentSans = Instrument_Sans({
     subsets: ['latin'],
