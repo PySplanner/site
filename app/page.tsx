@@ -137,7 +137,7 @@ export default function Home() {
   return (
     <div className="relative flex flex-col w-full items-center">
         <div className="relative flex flex-col w-full items-center min-h-screen pb-4">
-            <div className="absolute top-0 left-0 right-0 h-[60vh] bg-linear-to-b from-primary/11 dark:from-primary/6 to-transparent pointer-events-none" />
+            {/* <div className="absolute top-0 left-0 right-0 h-[60vh] bg-linear-to-b from-primary/11 dark:from-primary/6 to-transparent pointer-events-none" /> */}
 
             <img className="rounded-md mt-12 mb-12 h-50" src="./banner.svg" alt="PySplanner Logo" />
             <div className="w-full text-center">
