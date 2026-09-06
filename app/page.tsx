@@ -77,7 +77,7 @@ const releases: ReleaseProps[] = [
     github_link: "https://github.com/PySplanner/site"
   },
   {
-    product: "Visualizer",
+    product: "Planner",
     description: "A web-based tool for creating splans that the robot will follow.",
     version: "v0.0.0a",
     date: "2026-05-10",
