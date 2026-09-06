@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
 import { GithubSVG, DiscordSVG, YoutubeSVG, InstagramSVG } from "@/components/media-icons";
@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 import TypeIt from "typeit-react";
-import { ArrowDownIcon, MailIcon, ExternalLinkIcon } from "lucide-react";
+import { ArrowDownIcon, MailIcon, ExternalLinkIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 interface TutorialProps {
   name: string;
@@ -123,6 +123,21 @@ export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const [isScrollIndicatorVisible, setScrollIndicatorVisible] = useState(false);
 
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(false);
+
+  const updateArrows = useCallback(() => {
+    if (!trackRef.current) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = trackRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+    const needsScroll = maxScroll > 2;
+
+    setShowLeft(needsScroll && scrollLeft > 2);
+    setShowRight(needsScroll && scrollLeft < maxScroll - 2);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollIndicatorVisible(window.scrollY < 50);
@@ -134,6 +149,24 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll, true);
   }, []);
   
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    track.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+
+    setTimeout(updateArrows, 50);
+
+    return () => {
+        track.removeEventListener('scroll', updateArrows);
+        window.removeEventListener('resize', updateArrows);
+    };
+  }, [updateArrows]);
+
+  const scrollLeft = () => trackRef.current?.scrollBy({ left: -320, behavior: 'smooth' });
+  const scrollRight = () => trackRef.current?.scrollBy({ left: 320, behavior: 'smooth' });
+
   return (
     <div className="relative flex flex-col w-full items-center">
         <div className="relative flex flex-col w-full items-center min-h-screen pb-4">
@@ -162,17 +195,34 @@ export default function Home() {
             )}
         </div>
 
-        <div className="flex flex-col w-full max-w-4xl">
+        <div className="flex flex-col w-full max-w-7xl">
             <Card className="w-full p-6">
-                <h3 className="text-2xl font-bold text-primary">Tutorials</h3>
-                <div className="flex flex-row space-x-3 overflow-x-auto p-1 pb-4">
-                  {tutorials.map((tutorial, index) => (
-                    <Card key={index} className="flex flex-col w-90 gap-4 pb-4 shrink-0 bg-background hover:shadow-xl hover:ring-primary transition-all cursor-pointer">
-                      <img src={tutorial.image || "./logo.svg"} className="w-full h-32 object-cover rounded-t-lg border-b" />
-                      <h4 className="text-lg font-semibold mx-4">{tutorial.name}</h4>
-                      <p className="text-muted-foreground mx-4">{tutorial.description}</p>
-                    </Card>
-                  ))}
+                <h3 className="text-2xl font-bold text-primary mb-2">Tutorials</h3>
+                
+                <div className="relative flex items-center w-full">
+
+                    <button onClick={scrollLeft} className={`absolute left-2 z-20 bg-card border shadow-lg text-primary w-9 h-9 rounded-full flex items-center justify-center transition-opacity duration-200 ${showLeft ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+                        <ChevronLeftIcon size={20} strokeWidth={2.5} />
+                    </button>
+
+                    <div 
+                        className="flex flex-row gap-4 overflow-x-auto scroll-smooth py-2 px-1 scrollbar-hide w-full" 
+                        ref={trackRef} 
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                      {tutorials.map((tutorial, index) => (
+                        <Card key={index} className="flex flex-col w-80 shrink-0 gap-4 pb-4 bg-background hover:shadow-xl hover:ring-primary transition-all cursor-pointer">
+                          <img src={tutorial.image || "./logo.svg"} className="w-full h-32 object-cover rounded-t-lg border-b" />
+                          <h4 className="text-lg font-semibold mx-4">{tutorial.name}</h4>
+                          <p className="text-muted-foreground mx-4">{tutorial.description}</p>
+                        </Card>
+                      ))}
+                    </div>
+
+
+                    <button onClick={scrollRight} className={`absolute right-2 z-20 bg-card border shadow-lg text-primary w-9 h-9 rounded-full flex items-center justify-center transition-opacity duration-200 ${showRight ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+                        <ChevronRightIcon size={20} strokeWidth={2.5} />
+                    </button>
                 </div>
             </Card>
 
