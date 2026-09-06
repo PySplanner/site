@@ -116,12 +116,12 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* Creates a diagonal background gradient for the whole page */
+/* Creates a subtle diagonal background gradient for the whole page */
 body {
   background-image: linear-gradient(
     135deg, 
     var(--color-background) 0%, 
-    color-mix(in srgb, color-mix(in srgb, var(--color-primary), black 30%), transparent 90%) 50%,
+    hsl(270, 35%, 9%) 50%,
     var(--color-background) 80%
   );
   background-attachment: fixed;

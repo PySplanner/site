@@ -195,7 +195,7 @@ export default function Home() {
             )}
         </div>
 
-        <div className="flex flex-col w-full max-w-7xl">
+        <div className="flex flex-col w-full max-w-6xl">
             <Card className="w-full p-6">
                 <h3 className="text-2xl font-bold text-primary mb-2">Tutorials</h3>
                 
