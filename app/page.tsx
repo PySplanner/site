@@ -167,7 +167,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-primary">Tutorials</h3>
                 <div className="flex flex-row space-x-3 overflow-x-auto p-1 pb-4">
                   {tutorials.map((tutorial, index) => (
-                    <Card key={index} className="flex flex-col w-90 gap-4 pb-4 shrink-0 hover:shadow-xl hover:ring-primary transition-all cursor-pointer">
+                    <Card key={index} className="flex flex-col w-90 gap-4 pb-4 shrink-0 bg-background hover:shadow-xl hover:ring-primary transition-all cursor-pointer">
                       <img src={tutorial.image || "./logo.svg"} className="w-full h-32 object-cover rounded-t-lg border-b" />
                       <h4 className="text-lg font-semibold mx-4">{tutorial.name}</h4>
                       <p className="text-muted-foreground mx-4">{tutorial.description}</p>
@@ -180,7 +180,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-primary">Releases</h3>
                 <div className="grid grid-cols-2 w-full">
                   {releases.map((release, index) => (
-                    <Card key={index} className={`p-4 gap-4 hover:shadow-xl hover:ring-primary transition-all cursor-pointer ${index % 2 === 0 ? 'mr-2' : 'ml-2'} ${index >= 2 ? 'mt-4' : ''}`} onClick={() => window.open(release.github_link, '_blank')}>
+                    <Card key={index} className={`p-4 gap-4 hover:shadow-xl bg-background hover:ring-primary transition-all cursor-pointer ${index % 2 === 0 ? 'mr-2' : 'ml-2'} ${index >= 2 ? 'mt-4' : ''}`} onClick={() => window.open(release.github_link, '_blank')}>
                       <h4 className="text-lg font-semibold">{release.product} - {release.version}</h4>
                       <p className="text-muted-foreground">{release.description}</p>
                       <p className="text-sm text-muted-foreground">Released on {release.date}</p>
@@ -193,7 +193,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-primary">Connect With Us</h3>
                 <div className="flex flex-row space-x-4">
                   {socialLinks.map((social, index) => (
-                    <Card key={index} className="flex flex-1 flex-row p-4 items-center hover:shadow-xl hover:ring-primary transition-all cursor-pointer" onClick={() => window.open(social.link, '_blank')}>
+                    <Card key={index} className="flex flex-1 flex-row p-4 bg-background items-center hover:shadow-xl hover:ring-primary transition-all cursor-pointer" onClick={() => window.open(social.link, '_blank')}>
                       {social.icon}
                       <p className="text-muted-foreground">{social.name}</p>
                     </Card>
