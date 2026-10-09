@@ -1,21 +1,12 @@
-# Next.js template
+![PySplanner logo](public/banner.svg)
+<h1 align="center">Home Site</h1>
 
-This is a Next.js template with shadcn/ui.
-
-## Adding components
-
-To add components to your app, run the following command:
-
-```bash
-npx shadcn@latest add button
+Main home page for the PySplanner project developed with NextJS.
+# Development
+```
+npm i
+npm run dev
 ```
 
-This will place the ui components in the `components` directory.
-
-## Using components
-
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
-```
+# Pull Requests
+Pull requests to any open source PySplanner project are welcome, however, we have a strict agentic coding policy. Any pull request that is suspected of generative AI usage will be closed.
